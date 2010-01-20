@@ -47,6 +47,10 @@ MEDIA_URL = ''
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/media/'
 
+# Custom static data location
+import os
+STATIC_ROOT = os.getcwd() + '/static'
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '6c*07no)#8$gdn4v2jg#^iw_-yc40t(kwcg4s5hqfmp+cw6d63'
 
@@ -76,4 +80,6 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.admin',
+    'mrmgr.rackit',
 )
