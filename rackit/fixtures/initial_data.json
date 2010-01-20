@@ -1,0 +1,48 @@
+[
+    {
+        "pk": "A1", 
+        "model": "rackit.rack", 
+        "fields": {}
+    }, 
+    {
+        "pk": "A2", 
+        "model": "rackit.rack", 
+        "fields": {}
+    }, 
+    {
+        "pk": "meteor.eng", 
+        "model": "rackit.machine", 
+        "fields": {
+            "position": 1, 
+            "rack": "A1", 
+            "u_space": 2
+        }
+    }, 
+    {
+        "pk": "firefly.eng", 
+        "model": "rackit.machine", 
+        "fields": {
+            "position": 2, 
+            "rack": "A1", 
+            "u_space": 1
+        }
+    }, 
+    {
+        "pk": "test01.eng", 
+        "model": "rackit.machine", 
+        "fields": {
+            "position": 1, 
+            "rack": "A2", 
+            "u_space": 1
+        }
+    }, 
+    {
+        "pk": "test02.eng", 
+        "model": "rackit.machine", 
+        "fields": {
+            "position": 1, 
+            "rack": "A2", 
+            "u_space": 1
+        }
+    }
+]
