@@ -7,7 +7,12 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    (r'^mrmgr/', include('mrmgr.rackit.urls')),
+    # Do included URLs later?
+    #(r'^mrmgr/', include('mrmgr.rackit.urls')),
+    # Main application URLs
+    (r'^$', 'mrmgr.rackit.views.index'),
+    (r'^rack/(?P<rack_id>\w+)/$', 'mrmgr.rackit.views.showrack'),
+
     (r'^static/(?P<path>.*)$', 'django.views.static.serve',
      {'document_root': settings.STATIC_ROOT}),
 

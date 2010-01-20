@@ -1,5 +1,7 @@
 # Django settings for mrmgr project.
+import os
 
+CWD = os.getcwd()
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -48,8 +50,7 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Custom static data location
-import os
-STATIC_ROOT = os.getcwd() + '/static'
+STATIC_ROOT = CWD + '/static'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '6c*07no)#8$gdn4v2jg#^iw_-yc40t(kwcg4s5hqfmp+cw6d63'
@@ -70,9 +71,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'mrmgr.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    CWD + '/templates',
 )
 
 INSTALLED_APPS = (

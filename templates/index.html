@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Rack list</title>
+</head>
+<body>
+
+<ul>
+{% for rack in rack_list %}
+  <li><a href="rack/{{ rack.name }}/">{{ rack }}</a></li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
