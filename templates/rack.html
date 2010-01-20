@@ -1,14 +1,30 @@
 <html>
 <head>
-<title>Rack detail {{ rack }}</title>
+<title>Rack {{ rack }} detail</title>
+<link type="text/css" href="/static/css/smoothness/jquery-ui-1.7.2.custom.css" rel="Stylesheet" />
+<style type="text/css">
+#machines { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+#machines li {
+    align: center;
+}
+</style>
+<script type="text/javascript" src="/static/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    $("#machines").sortable();
+});
+</script>
 </head>
 <body>
 
-<ul>
+<div class="rack">
+<ul id="machines">
 {% for m in machine_list %}
-  <li>{{ m }} </li>
+  <li class="ui-state-default" style="height: {{ m.u_space }}.5em">{{ m }} </li>
 {% endfor %}
 </ul>
+</div>
 
 </body>
 </html>
