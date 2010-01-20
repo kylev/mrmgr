@@ -1,29 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-<title>Rack {{ rack }} detail</title>
-<link type="text/css" href="/static/css/smoothness/jquery-ui-1.7.2.custom.css" rel="Stylesheet" />
-<style type="text/css">
-#machines {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 40%; }
-#machines li {
-    text-align: center;
-}
-</style>
-<script type="text/javascript" src="/static/js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery-ui-1.7.2.custom.min.js"></script>
+{% extends "rackit_base.html" %}
+{% block title %}Rack {{ rack }} detail{% endblock %}
+
+{% block head_extra %}
 <script type="text/javascript">
 $(function() {
     $("#machines").sortable();
 });
 </script>
-</head>
-<body>
+{% endblock %}
 
+{% block content %}
 <div class="rack">
 <ul id="machines">
 {% for m in machine_list %}
@@ -31,6 +17,4 @@ $(function() {
 {% endfor %}
 </ul>
 </div>
-
-</body>
-</html>
+{% endblock %}
