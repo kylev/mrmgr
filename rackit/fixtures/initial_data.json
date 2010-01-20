@@ -10,12 +10,36 @@
         "fields": {}
     }, 
     {
+        "pk": 1, 
+        "model": "rackit.platform", 
+        "fields": {
+            "raid": "RAID10", 
+            "name": "Dell 2650", 
+            "ram_mb": 3170, 
+            "fsb_mhz": 533, 
+            "cpu_mhz": 2785, 
+            "u_space": 2
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "rackit.platform", 
+        "fields": {
+            "raid": "none", 
+            "name": "Dell 2950", 
+            "ram_mb": 3459, 
+            "fsb_mhz": 1333, 
+            "cpu_mhz": 1995, 
+            "u_space": 2
+        }
+    }, 
+    {
         "pk": "meteor.eng", 
         "model": "rackit.machine", 
         "fields": {
             "position": 1, 
             "rack": "A1", 
-            "u_space": 2
+            "platform": 1
         }
     }, 
     {
@@ -24,7 +48,7 @@
         "fields": {
             "position": 2, 
             "rack": "A1", 
-            "u_space": 1
+            "platform": 1
         }
     }, 
     {
@@ -33,7 +57,7 @@
         "fields": {
             "position": 1, 
             "rack": "A2", 
-            "u_space": 1
+            "platform": 1
         }
     }, 
     {
@@ -42,7 +66,16 @@
         "fields": {
             "position": 1, 
             "rack": "A2", 
-            "u_space": 1
+            "platform": 1
+        }
+    }, 
+    {
+        "pk": "plague.eng", 
+        "model": "rackit.machine", 
+        "fields": {
+            "position": 1, 
+            "rack": "A2", 
+            "platform": 2
         }
     }
 ]

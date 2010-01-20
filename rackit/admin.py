@@ -1,6 +1,8 @@
 from django.contrib import admin
-from mrmgr.rackit.models import Rack, Machine
+
+import mrmgr.rackit.models
 
 
-admin.site.register(Rack)
-admin.site.register(Machine)
+admin.site.register(mrmgr.rackit.models.Rack)
+admin.site.register(mrmgr.rackit.models.Platform)
+admin.site.register(mrmgr.rackit.models.Machine)
