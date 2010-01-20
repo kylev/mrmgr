@@ -5,6 +5,9 @@
 <script type="text/javascript">
 $(function() {
     $("#machines").sortable();
+    $("#machines").find("li").each(function(i) {
+       $(this).click(function() { $(this).effect("shake"); });
+    });
 });
 </script>
 {% endblock %}
