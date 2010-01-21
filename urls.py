@@ -12,6 +12,7 @@ urlpatterns = patterns(
     # Main application URLs
     (r'^$', 'mrmgr.rackit.views.index'),
     (r'^rack/(?P<rack_id>\w+)/$', 'mrmgr.rackit.views.showrack'),
+    (r'^rack_order/(?P<rack_id>\w+)/$', 'mrmgr.rackit.views.save_order'),
 
     (r'^static/(?P<path>.*)$', 'django.views.static.serve',
      {'document_root': settings.STATIC_ROOT}),

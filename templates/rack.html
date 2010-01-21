@@ -3,11 +3,16 @@
 
 {% block head_extra %}
 <script type="text/javascript">
+function save_rack(rack) {
+    $.post("/rack_order/{{ rack.name }}/", $("#machines").sortable('serialize'));
+};
+
 $(function() {
-    $("#machines").sortable();
-    $("#machines").find("li").each(function(i) {
-       $(this).click(function() { $(this).effect("shake"); });
-    });
+    $("#machines").sortable({
+        placeholder: 'ui-state-highlight',
+        update: function(event, ui) { save_rack(this); }
+        }
+    );
 });
 </script>
 {% endblock %}
@@ -17,7 +22,7 @@ $(function() {
 <div class="ui-icon-plusthick">Rack {{ rack }}</div>
 <ul id="machines">
 {% for m in machine_list %}
-  <li class="ui-state-default">{{ m }} </li>
+  <li id="machine-{{ m.name }}" class="ui-state-default">{{ m }} </li>
 {% endfor %}
 </ul>
 </div>

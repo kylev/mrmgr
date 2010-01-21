@@ -15,3 +15,13 @@ def showrack(request, rack_id):
     machine_list = Machine.objects.filter(rack=rack.name).order_by('position')
     return render_to_response('rack.html', {'rack': rack,
                                             'machine_list': machine_list})
+
+
+def save_order(request, rack_id):
+    rack = get_object_or_404(Rack, pk=rack_id)
+
+    for i, m in enumerate(request.POST.getlist('machine[]')):
+        o = Machine.objects.get(name=m)
+        o.position = i
+        o.save()
+    return HttpResponse('')
