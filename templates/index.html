@@ -19,13 +19,29 @@ function load_rack(rack) {
             placeholder: 'ui-state-highlight',
             update: function(event, ui) { save_rack(this); }
         });
+
+        $('#machine_add').click(function() {
+            $('#machine_add_form').dialog('open');
+        });
     });
 };
 
-$(document).ready(function() {
+$(function() {
     $('#rack_choice').change(function(event) {
         load_rack(this.value);
     });
+    $('#machine_add_form').dialog({bgiframe: true,
+        autoOpen: false,
+        height: 300,
+        modal: true,
+        buttons: {
+            Cancel: function() { $(this).dialog('close'); },
+            Save: function() {
+                alert(this);
+            }
+        }
+    });
+
     load_rack(current_rack);
 });
 </script>
@@ -37,6 +53,17 @@ $(document).ready(function() {
   <option value="{{ rack.name }}">{{ rack }}</option>
 {% endfor %}
 </select>
+
+<div id="machine_add_form" title="Add a machine">
+<form>
+<fieldset>
+<label for="name">Name</label>
+<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+<label for="email">Platfom</label>
+<input type="text" name="platform" id="email" value="" class="text ui-widget-content ui-corner-all" />
+</fieldset>
+</form>
+</div>
 
 <div id="rack">
 Loading initial rack...

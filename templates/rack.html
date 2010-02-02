@@ -1,7 +1,12 @@
-<div class="ui-icon-plusthick">Rack {{ rack }}</div>
+<div>
+  Rack {{ rack }}
+  <span id="machine_add" class="ui-icon ui-icon-plus"></span>
+</div>
 <ul id="machines">
 {% for m in machine_list %}
-  <li id="machine-{{ m.name }}" class="ui-state-default">{{ m }} </li>
+  <li id="machine-{{ m.name }}" class="ui-state-default">
+    {{ m }} <span class="machine_info">Info</span>
+  </li>
 {% endfor %}
 </ul>
 
