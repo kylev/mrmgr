@@ -1,29 +1,7 @@
-{% extends "rackit_base.html" %}
-{% block title %}Rack {{ rack }} detail{% endblock %}
-
-{% block head_extra %}
-<script type="text/javascript">
-function save_rack(rack) {
-    $.post("/rack_order/{{ rack.name }}/", $("#machines").sortable('serialize'));
-};
-
-$(function() {
-    $("#machines").sortable({
-        placeholder: 'ui-state-highlight',
-        update: function(event, ui) { save_rack(this); }
-        }
-    );
-});
-</script>
-{% endblock %}
-
-{% block content %}
-<div class="rack">
 <div class="ui-icon-plusthick">Rack {{ rack }}</div>
 <ul id="machines">
 {% for m in machine_list %}
   <li id="machine-{{ m.name }}" class="ui-state-default">{{ m }} </li>
 {% endfor %}
 </ul>
-</div>
-{% endblock %}
+

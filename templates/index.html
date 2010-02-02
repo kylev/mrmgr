@@ -1,10 +1,44 @@
 {% extends "rackit_base.html" %}
 {% block title %}Rack list{% endblock %}
 
+{% block head_extra %}
+<script type="text/javascript">
+var current_rack = "{{ rack_list.0 }}";
+
+function save_rack() {
+    $.post('/rack_order/' + current_rack + '/',
+           $("#machines").sortable('serialize'));
+};
+
+function load_rack(rack) {
+    $.get('rack/' + rack + '/', function(data) {
+        $('#rack').html(data);
+        current_rack = rack;
+
+        $('#machines').sortable({
+            placeholder: 'ui-state-highlight',
+            update: function(event, ui) { save_rack(this); }
+        });
+    });
+};
+
+$(document).ready(function() {
+    $('#rack_choice').change(function(event) {
+        load_rack(this.value);
+    });
+    load_rack(current_rack);
+});
+</script>
+{% endblock %}
+
 {% block content %}
-<ul>
+<select id="rack_choice">
 {% for rack in rack_list %}
-  <li><a href="rack/{{ rack.name }}/">{{ rack }}</a></li>
+  <option value="{{ rack.name }}">{{ rack }}</option>
 {% endfor %}
-</ul>
+</select>
+
+<div id="rack">
+Loading initial rack...
+</div>
 {% endblock %}
